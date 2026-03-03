@@ -32,8 +32,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} aria-label="Booking Form">
-      <label htmlFor="date">Choose date</label>
+    <form onSubmit={handleSubmit} aria-label="Reservation Form">
+      <label htmlFor="date">Date</label>
       <input
         type="date"
         id="date"
@@ -43,7 +43,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       />
       {errors.date && <span role="alert">{errors.date}</span>}
 
-      <label htmlFor="time">Choose time</label>
+      <label htmlFor="time">Time</label>
       <select
         id="time"
         name="time"
@@ -52,18 +52,19 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       >
         <option value="">Select time</option>
         {availableTimes.map((time) => (
-          <option key={time}>{time}</option>
+          <option key={time} value={time}>{time}</option>
         ))}
       </select>
       {errors.time && <span role="alert">{errors.time}</span>}
 
-      <label htmlFor="guests">Number of guests</label>
+      <label htmlFor="guests">Number of Guests</label>
       <input
         type="number"
         id="guests"
         name="guests"
         min="1"
         max="10"
+        required
         onChange={handleChange}
       />
       {errors.guests && <span role="alert">{errors.guests}</span>}
@@ -72,17 +73,16 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       <select
         id="occasion"
         name="occasion"
+        required
         onChange={handleChange}
       >
         <option value="">Select occasion</option>
-        <option>Birthday</option>
-        <option>Anniversary</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Anniversary">Anniversary</option>
       </select>
       {errors.occasion && <span role="alert">{errors.occasion}</span>}
 
-      <button type="submit" aria-label="Submit reservation">
-        Make Reservation
-      </button>
+      <button type="submit">Reserve</button>
     </form>
   );
 }
