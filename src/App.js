@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main role="main">
+      <main>
         <Routes>
           <Route path="/" element={<BookingPage />} />
           <Route path="/confirmed" element={<ConfirmedBooking />} />
