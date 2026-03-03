@@ -1,7 +1,13 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header, footer {
+  background-color: #495e57;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
 main {
@@ -10,14 +16,13 @@ main {
 
 form {
   display: grid;
-  max-width: 400px;
   gap: 1rem;
+  max-width: 400px;
 }
 
 button {
   padding: 0.75rem;
-  background-color: #495e57;
-  color: white;
+  background-color: #f4ce14;
   border: none;
   cursor: pointer;
 }
