@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import BookingForm from "../components/BookingForm";
 
-test("renders booking form heading", () => {
+test("renders booking form correctly", () => {
   render(
     <BookingForm
       availableTimes={[]}
@@ -10,6 +10,7 @@ test("renders booking form heading", () => {
     />
   );
 
-  const button = screen.getByRole("button");
-  expect(button).toBeInTheDocument();
+  expect(screen.getByLabelText(/Date/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/Time/i)).toBeInTheDocument();
+  expect(screen.getByRole("button")).toBeInTheDocument();
 });
